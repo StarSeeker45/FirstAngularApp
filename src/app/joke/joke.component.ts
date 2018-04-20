@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 export class Joke {
     public setup: string;
@@ -22,5 +23,15 @@ export class Joke {
     styleUrls: ['./joke.component.css']
 })
 export class JokeComponent{
-    @Input() joke: Object;
+    @Input() joke: Joke;
+    id: number;
+
+    constructor(private route: ActivatedRoute) {
+        this.route.params.subscribe(params => {
+            // console.log(params);
+            this.id = params.id;
+        });
+    }
 }
+
+// <button [routerLink]="['jokes', id]" class="btn btn-lg btn-secondary" role="button">Go to Jokes {{ id }}</button>
