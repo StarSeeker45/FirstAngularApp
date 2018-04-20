@@ -19,6 +19,9 @@ export class JokeListComponent{
     toggle(joke){
         joke.hide = !joke.hide;
     }
+    addJoke(joke){
+        this.jokes.unshift(joke);
+    }
 }
 
 
