@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { Joke } from './joke.component';
+import { Joke } from './../joke/joke.component';
 
 @Component({
     selector: 'joke-list',
-    template: `
-    <app-joke-form></app-joke-form>
-    <joke *ngFor="let j of jokes" [joke]="j"></joke>
-    `
+    templateUrl: './jokelist.component.html',
+    styleUrls:['./jokelist.component.css']   
 })
 
 export class JokeListComponent{

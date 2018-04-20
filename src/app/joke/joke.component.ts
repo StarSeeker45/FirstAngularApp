@@ -18,14 +18,8 @@ export class Joke {
 
 @Component({
     selector: 'joke',
-    template: `
-    <div class="card mb-3" style="width: 320px;">
-    <div class="card-body">
-    <h4 class="card-title">{{ joke.setup }}</h4>
-    <p class="card-text" [hidden]="joke.hide">{{ joke.punchline}}</p>
-    <button class="btn btn-primary" (click)="joke.toggle()" role="button">Tell me</button>
-    </div>   
-    `
+    templateUrl: './joke.component.html',
+    styleUrls: ['./joke.component.css']
 })
 export class JokeComponent{
     @Input() joke: Object;

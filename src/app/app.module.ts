@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { JokeComponent } from './joke.component';
-import { JokeListComponent } from './jokelist.component';
+import { JokeComponent } from './joke/joke.component';
+import { JokeListComponent } from './joke-list/jokelist.component';
 import { JokeFormComponent } from './joke-form/joke-form.component';
 
 @NgModule({
