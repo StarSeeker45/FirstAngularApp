@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 export class Joke {
@@ -18,12 +18,14 @@ export class Joke {
 }
 
 @Component({
-    selector: 'joke',
+    selector: 'app-joke',
     templateUrl: './joke.component.html',
     styleUrls: ['./joke.component.css']
 })
 export class JokeComponent{
     @Input() joke: Joke;
+    
+
     id: number;
 
     constructor(private route: ActivatedRoute) {
@@ -31,6 +33,11 @@ export class JokeComponent{
             // console.log(params);
             this.id = params.id;
         });
+    }
+    
+    @Output () jokeDeleted = new EventEmitter();        
+    deleteJoke() {
+        this.jokeDeleted.emit(this.joke);
     }
 }
 

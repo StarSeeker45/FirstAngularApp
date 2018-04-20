@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Joke } from './../joke/joke.component';
 
 @Component({
@@ -9,6 +9,7 @@ import { Joke } from './../joke/joke.component';
 
 export class JokeListComponent{
     jokes: Joke[];
+    @Output() jokeDeleted = new EventEmitter();
     constructor(){
         this.jokes = [
             new Joke('What did the cheese say when it looked in the mirror?', 'Halloumi (Hello You)'),
@@ -21,6 +22,13 @@ export class JokeListComponent{
     }
     addJoke(joke){
         this.jokes.unshift(joke);
+    }
+    deleteJoke(joke){
+        const indexToDelete = this.jokes.indexOf(joke);
+        if (indexToDelete !== -1) {
+            this.jokes.splice(indexToDelete, 1);
+        }
+
     }
 }
 

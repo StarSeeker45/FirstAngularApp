@@ -4,4 +4,5 @@
         <h6 *ngIf="id">{{ id }}</h6>
         <p class="card-text" [hidden]="joke.hide">{{ joke.punchline}}</p>
         <button class="btn btn-primary" (click)="joke.toggle()" role="button">Tell me</button>
+        <button class="btn btn-primary" (click)="deleteJoke()" role="button">Delete</button>
         </div>   
